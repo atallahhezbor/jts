@@ -71,9 +71,15 @@ public class OrientationIndexTest
   public static boolean isAllOrientationsEqual(Coordinate[] pts)
   {
     int[] orient = new int[3];
-    orient[0] = Orientation.index(pts[0], pts[1], pts[2]);
-    orient[1] = Orientation.index(pts[1], pts[2], pts[0]);
-    orient[2] = Orientation.index(pts[2], pts[0], pts[1]);
+//<<<<<<< HEAD
+//    orient[0] = Orientation.index(pts[0], pts[1], pts[2]);
+//    orient[1] = Orientation.index(pts[1], pts[2], pts[0]);
+//    orient[2] = Orientation.index(pts[2], pts[0], pts[1]);
+//=======
+    orient[0] = RobustDeterminant.orientationIndex(pts[0], pts[1], pts[2]);
+    orient[1] = RobustDeterminant.orientationIndex(pts[1], pts[2], pts[0]);
+    orient[2] = RobustDeterminant.orientationIndex(pts[2], pts[0], pts[1]);
+//>>>>>>> parent of dbc8122a... Move RobustDeterminant out of core main code
     return orient[0] == orient[1] && orient[0] == orient[2];
   }
   
